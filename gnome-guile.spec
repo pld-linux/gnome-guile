@@ -8,7 +8,7 @@ Group:		X11/Gnome
 Group(pl):	X11/Gnome
 Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
 URL:		http://www.gnome.org/
-Require:	gtk+ = 1.2.1
+Requires:	gtk+ >= 1.2.1
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	gnome
 
