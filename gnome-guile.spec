@@ -4,8 +4,8 @@ Name:		gnome-guile
 Version:	0.27
 Release:	1
 Copyright:	LGPL
-Group:		X11/Gnome
-Group(pl):	X11/Gnome
+Group:		X11/GNOME
+Group(pl):	X11/GNOME
 Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
 URL:		http://www.gnome.org/
 Requires:	gtk+ >= 1.2.1
