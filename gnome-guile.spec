@@ -5,11 +5,6 @@ Version:	0.20
 Release:	2
 License:	LGPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/AplicaГУes
-Group(pt):	X11/AplicaГУes
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gnome-guile/%{name}-%{version}.tar.gz
 Patch0:		%{name}-new_gtkhtml.patch
 Patch1:		%{name}-destdir_in_makefiles.patch
@@ -41,13 +36,6 @@ pakiet.
 Summary:	GNOME guile includes
 Summary(pl):	Pliki nagЁСwkowe dla GNOME guile
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -60,13 +48,6 @@ Pliki nagЁСwkowe do programowania z u©yciem GNOME guile.
 Summary:	GNOME guile static libraries
 Summary(pl):	Biblioteki statyczne GNOME guile
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
