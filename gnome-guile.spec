@@ -5,7 +5,7 @@ Version:	0.20
 Release:	2
 License:	LGPL
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gnome-guile/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-guile/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-new_gtkhtml.patch
 Patch1:		%{name}-destdir_in_makefiles.patch
 URL:		http://www.gnome.org/
