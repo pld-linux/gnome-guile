@@ -28,7 +28,7 @@ is the GNU Network Object Model Environment. That's a fancy name but
 really GNOME is a nice GUI desktop environment. It makes using your
 computer easy, powerful, and easy to configure.
 
-%description -l pl 
+%description -l pl
 Interpreter guile dla GNOME. Wiele jego narzêdzi wykorzystuje ten
 pakiet.
 
