@@ -6,6 +6,7 @@ Release:	2
 License:	LGPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-guile/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	2be739e8bbc9fffe70e7ef19950bc984
 Patch0:		%{name}-new_gtkhtml.patch
 Patch1:		%{name}-destdir_in_makefiles.patch
 URL:		http://www.gnome.org/
