@@ -1,14 +1,15 @@
-Summary:     GNOME guile interpreter
-Summary(pl): Inetrpreter guile dla GNOME
-Name:        gnome-guile
-Version:     0.27
-Release:     2
-Copyright:   LGPL
-Group:       X11/Gnome
-Source:      ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
-URL:         http://www.gnome.org
-BuildRoot:   /tmp/%{name}-%{version}-root
-Obsoletes:   gnome
+Summary:	GNOME guile interpreter
+Summary(pl):	Inetrpreter guile dla GNOME
+Name:		gnome-guile
+Version:	0.27
+Release:	1
+Copyright:	LGPL
+Group:		X11/Gnome
+Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
+URL:		http://www.gnome.org/
+Require:	gtk+ = 1.2.1
+BuildRoot:	/tmp/%{name}-%{version}-root
+Obsoletes:	gnome
 
 %description
 GNOME guile (gnomeg) is a guile interpreter with GTK and GNOME support.
@@ -22,17 +23,17 @@ using your computer easy, powerful, and easy to configure.
 Inetrpreter guile GNOME'a, wiele jego narzêdzi wykorzystuje ten pakiet. 
 
 %package devel
-Summary:     GNOME guile libraries, includes, etc
-Group:       X11/Gnome
-Requires:    %{name} = %{version}
+Summary:	GNOME guile libraries, includes, etc
+Group:		X11/Gnome
+Requires:	%{name} = %{version}
 
 %description devel
 Libraries and header files for GNOME guile development
 
 %package static
-Summary:     GNOME guile static libraries
-Group:       X11/Gnome
-Requires:    %{name}-devel = %{version}
+Summary:	GNOME guile static libraries
+Group:		X11/Gnome
+Requires:	%{name}-devel = %{version}
 
 %description static
 GNOME guile static libraries.
@@ -41,12 +42,9 @@ GNOME guile static libraries.
 %setup -q
 
 %build
-# Needed for snapshot releases.
-if [ ! -f configure ]; then
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=/usr
-else
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr
-fi
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
+	--prefix=/usr/X11R6
 
 make
 
@@ -56,31 +54,33 @@ make install prefix=$RPM_BUILD_ROOT/usr
 
 strip $RPM_BUILD_ROOT/usr/{bin/*,lib/lib*.so.*.*} || :
 
-%clean
-rm -rf $RPM_BUILD_ROOT
+gzip -9nf AUTHORS ChangeLog NEWS README
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
-%defattr(644, root, root, 755)
-%doc AUTHORS ChangeLog NEWS README
-/usr/bin/*
-/usr/lib/lib*.so.*.*
+%clean
+rm -rf $RPM_BUILD_ROOT
 
-/usr/share/gtk
-/usr/share/guile/toolkits/*
-/usr/share/guile/gnome
-/usr/share/guile/gtk
-/usr/share/guile/site/*
+%files
+%defattr(644,root,root,755)
+%attr(755,root,root) /usr/X11R6/bin/*
+%attr(755,root,root) /usr/X11R6/lib/lib*.so.*.*
+
+/usr/X11R6/share/gtk
+/usr/X11R6/share/guile/toolkits/*
+/usr/X11R6/share/guile/gnome
+/usr/X11R6/share/guile/gtk
+/usr/X11R6/share/guile/site/*
 
 %files devel
-%defattr(644, root, root, 755)
-/usr/lib/lib*.so
-/usr/include/*
+%defattr(644,root,root,755)
+%doc *gz
+%attr(755,root,root) /usr/X11R6/lib/lib*.so
+/usr/X11R6/include/*
 
 %files static
-%attr(644, root, root) /usr/lib/*.a
+%attr(644,root,root) /usr/X11R6/lib/*.a
 
 %changelog
 * Mon Aug 31 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
