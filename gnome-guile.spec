@@ -1,11 +1,15 @@
 Summary:	GNOME guile interpreter
-Summary(pl):	Inetrpreter guile dla GNOME
+Summary(pl):	Interpreter guile dla GNOME
 Name:		gnome-guile
 Version:	0.20
-Release:	1
+Release:	2
 License:	LGPL
-Group:		X11/GNOME
-Group(pl):	X11/GNOME
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(es):	X11/Aplicaciones
+Group(pl):	X11/Aplikacje
+Group(pt_BR):	X11/AplicaÁıes
+Group(pt):	X11/AplicaÁıes
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gnome-guile/%{name}-%{version}.tar.gz
 Patch0:		%{name}-new_gtkhtml.patch
 Patch1:		%{name}-destdir_in_makefiles.patch
@@ -30,28 +34,46 @@ really GNOME is a nice GUI desktop environment. It makes using your
 computer easy, powerful, and easy to configure.
 
 %description -l pl 
-Inetrpreter guile GNOME'a. Wiele jego narzÍdzi wykorzystuje ten
+Interpreter guile dla GNOME. Wiele jego narzÍdzi wykorzystuje ten
 pakiet.
 
 %package devel
-Summary:	GNOME guile libraries, includes, etc
-Group:		X11/GNOME/Development/Libraries
-Group(pl):	X11/GNOME/Programowanie/Biblioteki
-Group(pl):	X11/GNOME/Programowanie/Biblioteki
+Summary:	GNOME guile includes
+Summary(pl):	Pliki nag≥Ûwkowe dla GNOME guile
+Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
+Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(uk):	X11/Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Requires:	%{name} = %{version}
 
 %description devel
-Libraries and header files for GNOME guile development
+Header files for GNOME guile development.
+
+%description devel -l pl
+Pliki nag≥Ûwkowe do programowania z uøyciem GNOME guile.
 
 %package static
 Summary:	GNOME guile static libraries
-Group:		X11/GNOME/Development/Libraries
-Group(pl):	X11/GNOME/Programowanie/Biblioteki
-Group(pl):	X11/GNOME/Programowanie/Biblioteki
+Summary(pl):	Biblioteki statyczne GNOME guile
+Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
+Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(uk):	X11/Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Requires:	%{name}-devel = %{version}
 
 %description static
 GNOME guile static libraries.
+
+%description static -l pl
+Biblioteki statyczne GNOME guile.
 
 %prep
 %setup -q
@@ -73,11 +95,11 @@ gzip -9nf AUTHORS ChangeLog NEWS README
 #ln -s %{_libdir}/libguilegtk.so \
 #	$RPM_BUILD_ROOT%{_datadir}/guile/toolkits/libgtkstubs.so
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
