@@ -70,8 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS ChangeLog NEWS README
-
 #rm -f $RPM_BUILD_ROOT%{_datadir}/guile/toolkits/libgtkstubs.so
 #ln -s %{_libdir}/libguilegtk.so \
 #	$RPM_BUILD_ROOT%{_datadir}/guile/toolkits/libgtkstubs.so
@@ -95,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *gz
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
 
