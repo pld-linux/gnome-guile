@@ -1,13 +1,20 @@
 Summary:	GNOME guile interpreter
 Summary(pl):	Inetrpreter guile dla GNOME
 Name:		gnome-guile
-Version:	1.0.0
+Version:	0.20
 Release:	1
 License:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/gnome-guile/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gnome-guile/%{name}-%{version}.tar.gz
+Patch0:		%{name}-new_gtkhtml.patch
+Patch1:		%{name}-destdir_in_makefiles.patch
 URL:		http://www.gnome.org/
+BuildRequires:	gnome-http-devel
+BuildRequires:	gnome-libs-devel
+BuildRequires:	gtk+-devel
+BuildRequires:	gtkhtml-devel
+BuildRequires:	guile-devel
 Requires:	gtk+ >= 1.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
@@ -23,7 +30,7 @@ really GNOME is a nice GUI desktop environment. It makes using your
 computer easy, powerful, and easy to configure.
 
 %description -l pl 
-Inetrpreter guile GNOME'a, wiele jego narzêdzi wykorzystuje ten
+Inetrpreter guile GNOME'a. Wiele jego narzêdzi wykorzystuje ten
 pakiet.
 
 %package devel
@@ -48,9 +55,11 @@ GNOME guile static libraries.
 
 %prep
 %setup -q
+%patch0 -p0
+%patch1 -p1
 
 %build
-%configure
+%configure2_13
 %{__make}
 
 %install
