@@ -84,24 +84,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %attr(644,root,root) /usr/X11R6/lib/*.a
-
-%changelog
-* Mon Aug 31 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.27-2]
-- added -q %setup parameter,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-- added static subpackage,
-- removed COPYING from %doc,
-- added full %attr description in %files,
-- added stripping shared libraries and binaries.
-
-* Fri Jul 17 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.27-1]
-- added pl translation.
-
-* Wed May 27 1998 Michael Fulbright <msf@redhat.com>
-- modified file list to include %{prefix}/share/guile, %{prefix}/share/gtk
-
-* Fri Mar 13 1998 Marc Ewing <marc@redhat.com>
-- Integrate into gnome-guile CVS source tree.
