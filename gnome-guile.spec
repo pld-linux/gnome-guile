@@ -21,7 +21,7 @@ Obsoletes:	gnome
 
 
 %description
-GNOME guile (gnomeg) is a guile interpreter with GTK and GNOME
+GNOME guile (gnomeg) is a guile interpreter with GTK+ and GNOME
 support. A number of GNOME utilities are written to use gnomeg. GNOME
 is the GNU Network Object Model Environment. That's a fancy name but
 really GNOME is a nice GUI desktop environment. It makes using your
