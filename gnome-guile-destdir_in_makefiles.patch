@@ -1,0 +1,236 @@
+diff -ur gnome-guile-0.20.orig/guile-gnome/Makefile.am gnome-guile-0.20/guile-gnome/Makefile.am
+--- gnome-guile-0.20.orig/guile-gnome/Makefile.am	Sat Nov 25 22:13:22 2000
++++ gnome-guile-0.20/guile-gnome/Makefile.am	Fri Oct  5 17:32:19 2001
+@@ -59,7 +59,7 @@
+ 	$(GNOME_LIBDIR)                              \
+ 	$(GNOMEUI_LIBS)
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(scmgnomedir)
+diff -ur gnome-guile-0.20.orig/guile-gnome/Makefile.in gnome-guile-0.20/guile-gnome/Makefile.in
+--- gnome-guile-0.20.orig/guile-gnome/Makefile.in	Fri Mar  9 18:07:46 2001
++++ gnome-guile-0.20/guile-gnome/Makefile.in	Fri Oct  5 17:32:14 2001
+@@ -130,7 +130,7 @@
+ gnomeg_LDADD =  	$(top_builddir)/guile-gtk/libguilegtk.la     	@GUILE_LIBS@ 				     	$(GNOME_LIBDIR)                              	$(GNOMEUI_LIBS)
+ 
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ EXTRA_DIST = gnome.scm gnome.defs gnome.defs.guile gnome-glue.c main.c              examples/uiinfo_demo.scm gnorba.defs gnorba.defs.guile 	     gnorba.scm
+ 
+diff -ur gnome-guile-0.20.orig/guile-gnome/bonobo/Makefile.am gnome-guile-0.20/guile-gnome/bonobo/Makefile.am
+--- gnome-guile-0.20.orig/guile-gnome/bonobo/Makefile.am	Thu Jun  8 05:47:06 2000
++++ gnome-guile-0.20/guile-gnome/bonobo/Makefile.am	Fri Oct  5 17:33:04 2001
+@@ -11,7 +11,7 @@
+ libguilebonobo_la_LDFLAGS = -export-dynamic
+ 
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(scmgnomedir)
+diff -ur gnome-guile-0.20.orig/guile-gnome/bonobo/Makefile.in gnome-guile-0.20/guile-gnome/bonobo/Makefile.in
+--- gnome-guile-0.20.orig/guile-gnome/bonobo/Makefile.in	Fri Mar  9 18:07:48 2001
++++ gnome-guile-0.20/guile-gnome/bonobo/Makefile.in	Fri Oct  5 17:35:17 2001
+@@ -108,7 +108,7 @@
+ libguilebonobo_la_LIBADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(BONOBO_LIBS)
+ libguilebonobo_la_LDFLAGS = -export-dynamic
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ EXTRA_DIST = bonobo.defs bonobo.scm bonobo-glue.c
+ 
+diff -ur gnome-guile-0.20.orig/guile-gnome/gal/Makefile.am gnome-guile-0.20/guile-gnome/gal/Makefile.am
+--- gnome-guile-0.20.orig/guile-gnome/gal/Makefile.am	Sun Nov 26 07:11:31 2000
++++ gnome-guile-0.20/guile-gnome/gal/Makefile.am	Fri Oct  5 17:32:59 2001
+@@ -11,7 +11,7 @@
+ libguilegal_la_LDFLAGS = -export-dynamic
+ 
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(scmgnomedir)
+diff -ur gnome-guile-0.20.orig/guile-gnome/gal/Makefile.in gnome-guile-0.20/guile-gnome/gal/Makefile.in
+--- gnome-guile-0.20.orig/guile-gnome/gal/Makefile.in	Fri Mar  9 18:07:52 2001
++++ gnome-guile-0.20/guile-gnome/gal/Makefile.in	Fri Oct  5 17:35:13 2001
+@@ -108,7 +108,7 @@
+ libguilegal_la_LIBADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(GAL_LIBS)
+ libguilegal_la_LDFLAGS = -export-dynamic
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ EXTRA_DIST = gal.defs gal.scm gal-glue.c
+ 
+diff -ur gnome-guile-0.20.orig/guile-gnome/gdk-pixbuf/Makefile.am gnome-guile-0.20/guile-gnome/gdk-pixbuf/Makefile.am
+--- gnome-guile-0.20.orig/guile-gnome/gdk-pixbuf/Makefile.am	Sun Nov 26 07:11:32 2000
++++ gnome-guile-0.20/guile-gnome/gdk-pixbuf/Makefile.am	Fri Oct  5 17:32:54 2001
+@@ -11,7 +11,7 @@
+ libguilegdkpixbuf_la_LDFLAGS = -export-dynamic
+ 
+ 
+-scmgnomedir = $(datadir)/guile/gtk
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gtk
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(scmgnomedir)
+diff -ur gnome-guile-0.20.orig/guile-gnome/gdk-pixbuf/Makefile.in gnome-guile-0.20/guile-gnome/gdk-pixbuf/Makefile.in
+--- gnome-guile-0.20.orig/guile-gnome/gdk-pixbuf/Makefile.in	Fri Mar  9 18:07:50 2001
++++ gnome-guile-0.20/guile-gnome/gdk-pixbuf/Makefile.in	Fri Oct  5 17:35:07 2001
+@@ -108,7 +108,7 @@
+ libguilegdkpixbuf_la_LIBADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(GDKPIXBUF_LIBS)
+ libguilegdkpixbuf_la_LDFLAGS = -export-dynamic
+ 
+-scmgnomedir = $(datadir)/guile/gtk
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gtk
+ 
+ EXTRA_DIST = gdkpixbuf.defs gdkpixbuf.scm gdkpixbuf-glue.c
+ 
+diff -ur gnome-guile-0.20.orig/guile-gnome/ghttp/Makefile.am gnome-guile-0.20/guile-gnome/ghttp/Makefile.am
+--- gnome-guile-0.20.orig/guile-gnome/ghttp/Makefile.am	Fri Nov 24 03:19:54 2000
++++ gnome-guile-0.20/guile-gnome/ghttp/Makefile.am	Fri Oct  5 17:32:45 2001
+@@ -11,7 +11,7 @@
+ libguileghttp_la_LDFLAGS = -export-dynamic
+ 
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(scmgnomedir)
+diff -ur gnome-guile-0.20.orig/guile-gnome/ghttp/Makefile.in gnome-guile-0.20/guile-gnome/ghttp/Makefile.in
+--- gnome-guile-0.20.orig/guile-gnome/ghttp/Makefile.in	Fri Mar  9 18:07:51 2001
++++ gnome-guile-0.20/guile-gnome/ghttp/Makefile.in	Fri Oct  5 17:35:03 2001
+@@ -108,7 +108,7 @@
+ libguileghttp_la_LIBADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(GHTTP_LIBS)
+ libguileghttp_la_LDFLAGS = -export-dynamic
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ EXTRA_DIST = ghttp.defs ghttp.scm ghttp-glue.c
+ 
+diff -ur gnome-guile-0.20.orig/guile-gnome/gtkhtml/Makefile.am gnome-guile-0.20/guile-gnome/gtkhtml/Makefile.am
+--- gnome-guile-0.20.orig/guile-gnome/gtkhtml/Makefile.am	Thu May 25 05:38:02 2000
++++ gnome-guile-0.20/guile-gnome/gtkhtml/Makefile.am	Fri Oct  5 17:32:40 2001
+@@ -11,7 +11,7 @@
+ libguilegtkhtml_la_LDFLAGS = -export-dynamic
+ 
+ 
+-scmgnomedir = $(datadir)/guile/gtk
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gtk
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(scmgnomedir)
+diff -ur gnome-guile-0.20.orig/guile-gnome/gtkhtml/Makefile.in gnome-guile-0.20/guile-gnome/gtkhtml/Makefile.in
+--- gnome-guile-0.20.orig/guile-gnome/gtkhtml/Makefile.in	Fri Mar  9 18:07:49 2001
++++ gnome-guile-0.20/guile-gnome/gtkhtml/Makefile.in	Fri Oct  5 17:34:59 2001
+@@ -108,7 +108,7 @@
+ libguilegtkhtml_la_LIBADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(GTKHTML_LIBS)
+ libguilegtkhtml_la_LDFLAGS = -export-dynamic
+ 
+-scmgnomedir = $(datadir)/guile/gtk
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gtk
+ 
+ EXTRA_DIST = gtkhtml.defs gtkhtml.scm gtkhtml-glue.c 	     gtkhtml-support.c gtkhtml-support.h
+ 
+diff -ur gnome-guile-0.20.orig/guile-gnome/libglade/Makefile.am gnome-guile-0.20/guile-gnome/libglade/Makefile.am
+--- gnome-guile-0.20.orig/guile-gnome/libglade/Makefile.am	Wed Nov 29 06:51:32 2000
++++ gnome-guile-0.20/guile-gnome/libglade/Makefile.am	Fri Oct  5 17:33:33 2001
+@@ -11,7 +11,7 @@
+ libguileglade_la_LDFLAGS = -export-dynamic
+ 
+ 
+-scmgnomedir = $(datadir)/guile/gtk
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gtk
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(scmgnomedir)
+diff -ur gnome-guile-0.20.orig/guile-gnome/libglade/Makefile.in gnome-guile-0.20/guile-gnome/libglade/Makefile.in
+--- gnome-guile-0.20.orig/guile-gnome/libglade/Makefile.in	Fri Mar  9 18:07:49 2001
++++ gnome-guile-0.20/guile-gnome/libglade/Makefile.in	Fri Oct  5 17:34:56 2001
+@@ -108,7 +108,7 @@
+ libguileglade_la_LIBADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(GLADE_LIBS)
+ libguileglade_la_LDFLAGS = -export-dynamic
+ 
+-scmgnomedir = $(datadir)/guile/gtk
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gtk
+ 
+ EXTRA_DIST = libglade.defs libglade.scm libglade-glue.c
+ 
+diff -ur gnome-guile-0.20.orig/guile-gnome/zvt/Makefile.am gnome-guile-0.20/guile-gnome/zvt/Makefile.am
+--- gnome-guile-0.20.orig/guile-gnome/zvt/Makefile.am	Mon Apr 24 05:28:03 2000
++++ gnome-guile-0.20/guile-gnome/zvt/Makefile.am	Fri Oct  5 17:33:29 2001
+@@ -11,7 +11,7 @@
+ libguilezvt_la_LDFLAGS = -export-dynamic
+ 
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(scmgnomedir)
+diff -ur gnome-guile-0.20.orig/guile-gnome/zvt/Makefile.in gnome-guile-0.20/guile-gnome/zvt/Makefile.in
+--- gnome-guile-0.20.orig/guile-gnome/zvt/Makefile.in	Fri Mar  9 18:07:47 2001
++++ gnome-guile-0.20/guile-gnome/zvt/Makefile.in	Fri Oct  5 17:34:47 2001
+@@ -107,7 +107,7 @@
+ libguilezvt_la_LIBADD = $(GNOME_LIBDIR) $(GNOMEUI_LIBS) $(ZVT_LIBS)
+ libguilezvt_la_LDFLAGS = -export-dynamic
+ 
+-scmgnomedir = $(datadir)/guile/gnome
++scmgnomedir = $(DESTDIR)$(datadir)/guile/gnome
+ 
+ EXTRA_DIST = zvt.defs zvt.scm zvt-glue.c
+ BUILT_SOURCES = zvt-glue.c 
+diff -ur gnome-guile-0.20.orig/guile-gtk/Makefile.am gnome-guile-0.20/guile-gtk/Makefile.am
+--- gnome-guile-0.20.orig/guile-gtk/Makefile.am	Mon Feb 26 02:25:15 2001
++++ gnome-guile-0.20/guile-gtk/Makefile.am	Fri Oct  5 17:31:26 2001
+@@ -69,11 +69,11 @@
+ include_HEADERS = guile-gtk.h
+ 
+ install-exec-local:
+-	mkdir -p $(bindir)
+-	cd $(bindir) && rm -f guile-gtk && $(LN_S) $(GUILE_GTK_VERSION) guile-gtk
++	mkdir -p $(DESTDIR)$(bindir)
++	cd $(DESTDIR)$(bindir) && rm -f guile-gtk && $(LN_S) $(GUILE_GTK_VERSION) guile-gtk
+ 
+-gtkmoduledir = $(datadir)/guile/gtk
+-vgtkmoduledir = $(datadir)/guile/gtk-$(GTK_VERSION)
++gtkmoduledir = $(DESTDIR)$(datadir)/guile/gtk
++vgtkmoduledir = $(DESTDIR)$(datadir)/guile/gtk-$(GTK_VERSION)
+ vscmsrcdir = $(srcdir)/gtk-$(GTK_VERSION)
+ install-data-local:
+ 	$(mkinstalldirs) $(vgtkmoduledir) $(gtkmoduledir)
+diff -ur gnome-guile-0.20.orig/guile-gtk/Makefile.in gnome-guile-0.20/guile-gtk/Makefile.in
+--- gnome-guile-0.20.orig/guile-gtk/Makefile.in	Fri Mar  9 18:07:44 2001
++++ gnome-guile-0.20/guile-gtk/Makefile.in	Fri Oct  5 17:31:48 2001
+@@ -145,8 +145,8 @@
+ 
+ include_HEADERS = guile-gtk.h
+ 
+-gtkmoduledir = $(datadir)/guile/gtk
+-vgtkmoduledir = $(datadir)/guile/gtk-$(GTK_VERSION)
++gtkmoduledir = $(DESTDIR)$(datadir)/guile/gtk
++vgtkmoduledir = $(DESTDIR)$(datadir)/guile/gtk-$(GTK_VERSION)
+ vscmsrcdir = $(srcdir)/gtk-$(GTK_VERSION)
+ 
+ gtkdefs = gtk-$(GTK_VERSION).defs
+@@ -609,8 +609,8 @@
+ 	$(LN_S) $(LIBGUILEGTK_VERSION) libguilegtk.la
+ 
+ install-exec-local:
+-	mkdir -p $(bindir)
+-	cd $(bindir) && rm -f guile-gtk && $(LN_S) $(GUILE_GTK_VERSION) guile-gtk
++	mkdir -p $(DESTDIR)$(bindir)
++	cd $(DESTDIR)$(bindir) && rm -f guile-gtk && $(LN_S) $(GUILE_GTK_VERSION) guile-gtk
+ install-data-local:
+ 	$(mkinstalldirs) $(vgtkmoduledir) $(gtkmoduledir)
+ 	$(INSTALL_DATA) $(vscmsrcdir)/gtk.scm $(vgtkmoduledir)/gtk.scm
