@@ -43,7 +43,7 @@ GNOME guile static libraries.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=/usr/X11R6
 
 make
