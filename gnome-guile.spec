@@ -1,31 +1,35 @@
 Summary:	GNOME guile interpreter
 Summary(pl):	Inetrpreter guile dla GNOME
 Name:		gnome-guile
-Version:	0.27
+Version:	1.0.0
 Release:	1
-Copyright:	LGPL
+License:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
-Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/gnome-guile/%{name}-%{version}.tar.gz
 URL:		http://www.gnome.org/
 Requires:	gtk+ >= 1.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
-%description
-GNOME guile (gnomeg) is a guile interpreter with GTK and GNOME support.
-A number of GNOME utilities are written to use gnomeg.
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
-GNOME is the GNU Network Object Model Environment.  That's a fancy
-name but really GNOME is a nice GUI desktop environment.  It makes
-using your computer easy, powerful, and easy to configure.
+%description
+GNOME guile (gnomeg) is a guile interpreter with GTK and GNOME
+support. A number of GNOME utilities are written to use gnomeg. GNOME
+is the GNU Network Object Model Environment. That's a fancy name but
+really GNOME is a nice GUI desktop environment. It makes using your
+computer easy, powerful, and easy to configure.
 
 %description -l pl 
-Inetrpreter guile GNOME'a, wiele jego narzêdzi wykorzystuje ten pakiet. 
+Inetrpreter guile GNOME'a, wiele jego narzêdzi wykorzystuje ten
+pakiet.
 
 %package devel
 Summary:	GNOME guile libraries, includes, etc
 Group:		X11/GNOME/Development/Libraries
+Group(pl):	X11/GNOME/Programowanie/Biblioteki
 Group(pl):	X11/GNOME/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -36,6 +40,7 @@ Libraries and header files for GNOME guile development
 Summary:	GNOME guile static libraries
 Group:		X11/GNOME/Development/Libraries
 Group(pl):	X11/GNOME/Programowanie/Biblioteki
+Group(pl):	X11/GNOME/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -45,19 +50,21 @@ GNOME guile static libraries.
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=/usr/X11R6
-
+LDFLAGS="-s"; export LDFLAGS
+%configure
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install prefix=$RPM_BUILD_ROOT/usr
+make install DESTDIR=$RPM_BUILD_ROOT
 
-strip $RPM_BUILD_ROOT/usr/{bin/*,lib/lib*.so.*.*} || :
+strip $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf AUTHORS ChangeLog NEWS README
+
+#rm -f $RPM_BUILD_ROOT%{_datadir}/guile/toolkits/libgtkstubs.so
+#ln -s %{_libdir}/libguilegtk.so \
+#	$RPM_BUILD_ROOT%{_datadir}/guile/toolkits/libgtkstubs.so
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -67,20 +74,21 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) /usr/X11R6/bin/*
-%attr(755,root,root) /usr/X11R6/lib/lib*.so.*.*
+%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
-/usr/X11R6/share/gtk
-/usr/X11R6/share/guile/toolkits/*
-/usr/X11R6/share/guile/gnome
-/usr/X11R6/share/guile/gtk
-/usr/X11R6/share/guile/site/*
+%{_datadir}/gtk
+%{_datadir}/guile/toolkits/*
+%{_datadir}/guile/gnome
+%{_datadir}/guile/gtk
+%{_datadir}/guile/site/*
 
 %files devel
 %defattr(644,root,root,755)
 %doc *gz
-%attr(755,root,root) /usr/X11R6/lib/lib*.so
-/usr/X11R6/include/*
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_includedir}/*
 
 %files static
-%attr(644,root,root) /usr/X11R6/lib/*.a
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
