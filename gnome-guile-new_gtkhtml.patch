@@ -1,0 +1,11 @@
+--- guile-gnome/gtkhtml/gtkhtml-glue.c~	Tue Feb  6 04:46:22 2001
++++ guile-gnome/gtkhtml/gtkhtml-glue.c	Fri Oct  5 11:14:17 2001
+@@ -320,7 +320,7 @@
+   SCM_DEFER_INTS;
+   c_html = (GtkHTML*)sgtk_get_gtkobj (p_html);
+   c_parent = (GtkWidget*)sgtk_get_gtkobj (p_parent);
+-  gtk_html_set_iframe_parent (c_html, c_parent);
++  gtk_html_set_iframe_parent (c_html, c_parent, NULL);
+   SCM_ALLOW_INTS;
+ 
+   return SCM_UNSPECIFIED;
