@@ -18,8 +18,6 @@ Requires:	gtk+ >= 1.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 GNOME guile (gnomeg) is a guile interpreter with GTK and GNOME
