@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 - added static subpackage,
 - removed COPYING from %doc,
 - added full %attr description in %files,
-- added striping shared libraries and binaries.
+- added stripping shared libraries and binaries.
 
 * Fri Jul 17 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
   [0.27-1]
