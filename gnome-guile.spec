@@ -5,6 +5,7 @@ Version:	0.27
 Release:	1
 Copyright:	LGPL
 Group:		X11/Gnome
+Group(pl):	X11/Gnome
 Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
 URL:		http://www.gnome.org/
 Require:	gtk+ = 1.2.1
@@ -24,7 +25,8 @@ Inetrpreter guile GNOME'a, wiele jego narzêdzi wykorzystuje ten pakiet.
 
 %package devel
 Summary:	GNOME guile libraries, includes, etc
-Group:		X11/Gnome
+Group:		X11/GNOME/Development/Libraries
+Group(pl):	X11/GNOME/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
@@ -32,7 +34,8 @@ Libraries and header files for GNOME guile development
 
 %package static
 Summary:	GNOME guile static libraries
-Group:		X11/Gnome
+Group:		X11/GNOME/Development/Libraries
+Group(pl):	X11/GNOME/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
