@@ -16,8 +16,8 @@ BuildRequires:	gtk+-devel
 BuildRequires:	gtkhtml-devel
 BuildRequires:	guile-devel
 Requires:	gtk+ >= 1.2.1
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
 %description
@@ -35,7 +35,7 @@ pakiet.
 Summary:	GNOME guile includes
 Summary(pl):	Pliki nag³ówkowe dla GNOME guile
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for GNOME guile development.
@@ -47,7 +47,7 @@ Pliki nag³ówkowe do programowania z u¿yciem GNOME guile.
 Summary:	GNOME guile static libraries
 Summary(pl):	Biblioteki statyczne GNOME guile
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 GNOME guile static libraries.
@@ -67,7 +67,8 @@ Biblioteki statyczne GNOME guile.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 #rm -f $RPM_BUILD_ROOT%{_datadir}/guile/toolkits/libgtkstubs.so
 #ln -s %{_libdir}/libguilegtk.so \
