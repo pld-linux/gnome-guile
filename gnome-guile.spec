@@ -1,5 +1,5 @@
 Summary:	GNOME guile interpreter
-Summary(pl.UTF-8):   Interpreter guile dla GNOME
+Summary(pl.UTF-8):	Interpreter guile dla GNOME
 Name:		gnome-guile
 Version:	0.20
 Release:	2
@@ -33,7 +33,7 @@ pakiet.
 
 %package devel
 Summary:	GNOME guile includes
-Summary(pl.UTF-8):   Pliki nagłówkowe dla GNOME guile
+Summary(pl.UTF-8):	Pliki nagłówkowe dla GNOME guile
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -45,7 +45,7 @@ Pliki nagłówkowe do programowania z użyciem GNOME guile.
 
 %package static
 Summary:	GNOME guile static libraries
-Summary(pl.UTF-8):   Biblioteki statyczne GNOME guile
+Summary(pl.UTF-8):	Biblioteki statyczne GNOME guile
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
