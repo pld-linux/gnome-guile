@@ -3,22 +3,21 @@ Summary(pl.UTF-8):	Interpreter guile dla GNOME
 Name:		gnome-guile
 Version:	0.20
 Release:	2
-License:	LGPL
+License:	GPL v2+
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-guile/%{version}/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-guile/0.20/%{name}-%{version}.tar.gz
 # Source0-md5:	2be739e8bbc9fffe70e7ef19950bc984
 Patch0:		%{name}-new_gtkhtml.patch
 Patch1:		%{name}-destdir_in_makefiles.patch
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-http-devel
 BuildRequires:	gnome-libs-devel
-BuildRequires:	gtk+-devel
+BuildRequires:	gtk+-devel >= 1.2.1
 BuildRequires:	gtkhtml-devel
 BuildRequires:	guile-devel
 Requires:	gtk+ >= 1.2.1
 Obsoletes:	gnome
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 GNOME guile (gnomeg) is a guile interpreter with GTK+ and GNOME
